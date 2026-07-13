@@ -2,7 +2,6 @@ import allure
 import jsonschema
 import requests
 from .schemas.pet_schema import PET_SCHEMA
-from .schemas.pet2_schema import PET_SCHEMA
 
 BASE_URL = "http://5.181.109.28:9090/api/v3"
 
@@ -71,7 +70,7 @@ class TestPet:
             assert response_json['status'] == payload['status'], "статус питомца не совпадает с ожидаемым"
 
     @allure.title("Добавление нового питомца c полными данными")
-    def test_add_pet(self):
+    def test_add_pet_with_full_data(self):
         with allure.step("Подготовка данных для создания питомца"):
             payload = {
                 "id": 1,
